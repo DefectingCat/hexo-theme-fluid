@@ -13,9 +13,8 @@
     padding-left 1rem
     padding-right 1rem
 
-.post-content
-    h1, h2, h3, h4, h5, h6
-      anchor-offset()
+.post-content h1, h2, h3, h4, h5, h6
+  anchor-offset()
 
 .page-content, post-content
   strong
@@ -159,11 +158,11 @@
     font-size 0.95rem
 
 .tocbot-link
-  color var(--text-color)
+  color $tocbot-link-color
 
 .tocbot-active-link
   font-weight bold
-  color var(--link-hover-color)
+  color $tocbot-link-active-color
 
 .tocbot-is-collapsed
   max-height 0

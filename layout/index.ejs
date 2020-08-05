@@ -17,30 +17,23 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
         </a>
       </div>
     <% } %>
-    <article class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info">
-      <h1 class="index-header">
-        <a href="<%- post_url %>"><%= post.title %></a>
-      </h1>
+    <div class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info">
+      <a class="index-header" href="<%- post_url %>"><%= post.title %></a>
 
-      <p class="index-excerpt">
-        <a href="<%- post_url %>">
-          <% var excerpt = '' %>
-          <% if(post.excerpt) { %>
-            <% excerpt = strip_html(post.excerpt).substr(0, 200) %>
-          <% } else if(theme.index.auto_excerpt.enable){ %>
-            <% excerpt = strip_html(post.content).substr(0, 200) %>
-          <% } %>
-          <%- excerpt %>
-        </a>
-      </p>
+      <a href="<%- post_url %>" class="index-excerpt">
+        <% var excerpt = '' %>
+        <% if(post.excerpt) { %>
+          <% excerpt = strip_html(post.excerpt).substr(0, 200) %>
+        <% } else if(theme.index.auto_excerpt.enable){ %>
+          <% excerpt = strip_html(post.content).substr(0, 200) %>
+        <% } %>
+        <div><%- excerpt %></div>
+      </a>
 
       <div class="index-btm post-metas">
         <% if(theme.index.post_meta.date ) { %>
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
-              <%- date(post.date, config.date_format) %>
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;<%- date(post.date, config.date_format) %>
           </div>
         <% } %>
         <% if(theme.index.post_meta.category && post.categories.length > 0) { %>
@@ -60,7 +53,7 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           </div>
         <% } %>
       </div>
-    </article>
+    </div>
   </div>
 <% }) %>
 
